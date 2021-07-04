@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "panda",
+	"patterns": [
+		{"include": "#keywords"},
+		{"include": "#defalts"},
+		{"include": "#strings"}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.panda",
+				"match": "\\b(if|else|func|return|get|out|while|for|break|continue|var)\\b"
+			}]
+		},
+		"defalts": {
+			"patterns":[{
+				"name": "keyword.deftype.panda",
+				"match": "\\b(int|float|str)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.panda",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.panda",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"paren-expression": {
+		"begin": "\\:",
+		"end": "\\;",
+		"beginCaptures": {
+		  "0": { "name": "punctuation.paren.open" }
+		},
+		"endCaptures": {
+		  "0": { "name": "punctuation.paren.close" }
+		},
+		"name": "expression.group",
+		"patterns": [
+			{"include": "#keywords"},
+			{"include": "#defalts"},
+			{"include": "#strings"}
+		]
+	},
+	"scopeName": "source.panda"
+}
