@@ -3,6 +3,7 @@
 	"name": "panda",
 	"patterns": [
 		{"include": "#keywords"},
+		{"include": "#operator"},
 		{"include": "#defalts"},
 		{"include": "#strings"}
 	],
@@ -13,9 +14,15 @@
 				"match": "\\b(if|else|func|return|get|out|while|for|break|continue|var)\\b"
 			}]
 		},
+		"operator": {
+			"patterns": [{
+				"name": "keyword.operator.panda",
+				"match": "\\b(add|sub|mul|div|mod|is|not|and|or|xor)\\b"
+			}]
+		},
 		"defalts": {
 			"patterns":[{
-				"name": "keyword.deftype.panda",
+				"name": "storage.type.panda",
 				"match": "\\b(int|float|str)\\b"
 			}]
 		},
@@ -30,22 +37,6 @@
 				}
 			]
 		}
-	},
-	"paren-expression": {
-		"begin": "\\:",
-		"end": "\\;",
-		"beginCaptures": {
-		  "0": { "name": "punctuation.paren.open" }
-		},
-		"endCaptures": {
-		  "0": { "name": "punctuation.paren.close" }
-		},
-		"name": "expression.group",
-		"patterns": [
-			{"include": "#keywords"},
-			{"include": "#defalts"},
-			{"include": "#strings"}
-		]
 	},
 	"scopeName": "source.panda"
 }
